@@ -1,0 +1,68 @@
+.form{
+	width: 200px;
+    text-align: center;
+    margin: auto;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border: 2px solid #a94442; /* red */
+}
+.form-submit-data{
+	text-align: center;
+	border: 1px solid blue;
+	padding: 10px;
+}
+
+.contact-form{
+
+	border: 1px solid green;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.address, .address-display{
+
+	border: 1px solid gray;
+	margin: 10px;
+	padding: 10px;
+}
+
+.address-cont,.address-display-cont{
+	border: 1px solid blue;
+	margin: 10px;
+	padding: 10px;
+}
+
+
+
+ .hobbies-display-cont{
+   	 border: 1px solid gray;
+    padding: 20px;
+   } 
+
+.hobbies, .hobbies-display{
+
+	border: 1px solid orange;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.hobbies input{
+
+	margin-bottom: 10px;
+}
+.contact-us-info{
+	text-align: center;
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+button[disabled]{
+	color: gray;
+}
+button.edit{
+	margin: 10px;
+}

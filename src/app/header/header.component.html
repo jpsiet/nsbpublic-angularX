@@ -1,0 +1,62 @@
+<div class="header-container clearfix">
+	
+	<div class="left-content">  <img src="../../assets/logo.png">   <span> NSB PUBLIC SCHOOL</span></div>
+
+	<ul>
+		<li> <a href="" routerLinkActive="active" [routerLink] = "['about']"> About Us </a>
+
+	        <ul>
+	        	<li><a href="">Message</a></li>
+	        	<li><a href=""> School Information </a></li>
+	        	<li> <a href="" routerLinkActive="active" [routerLink]="['admission']">Admission</a> </li>
+	        </ul>
+		</li>
+		<li><a >Academics</a>
+		       <ul>
+		          <li> <a> Pre Primary & Primary </a></li>
+		          <li> <a> Middle School </a></li>
+		       </ul>
+
+		 </li>
+		
+		<li> <a href="">Co-Curricular</a>
+		<ul> 
+
+            <li> <a href="">School Competition</a>  </li>
+		</ul> 
+
+
+
+		</li>
+
+		<li> <a [routerLink]="['/login']"  *ngIf="!this.authService.currentRole">Login</a></li>
+		<li> <a (click)="handleLogOut()" *ngIf="this.authService.currentRole">Logout</a></li>
+		<li>  <a href="" [routerLink]="['contact']" routerLinkActive="active"> Contact 
+		
+		 	 <ul>
+	        	 <li> <a [routerLink]="['contact','id']" routerLinkActive="active"> Career</a></li>
+	       
+	        </ul>
+
+		
+		 </a></li>
+
+		
+
+		 <li><a [routerLink]="['/game']">Game</a></li>
+
+		  <li> <a>Admin
+
+	         <ul>
+	         	<li><a>As a Principal</a></li>
+	         	 <li> <a [routerLink]="['/teachers']">Teachers</a></li>
+			  <li> <a [routerLink]="['/students']">Students</a></li>
+	         </ul>
+
+		 </a></li>
+		 <li> <a href="http://nsbpubliceducation-react.s3-website.us-east-2.amazonaws.com/admin">React Version</a></li>
+
+	</ul>
+
+
+</div>

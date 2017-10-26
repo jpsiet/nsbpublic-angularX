@@ -1,0 +1,25 @@
+<div>
+
+<h1>Tic Toc Game</h1>
+
+<div class="game-info">
+ <P>{{status}}</P>
+	
+</div>
+
+<div class="game-cont">
+ 
+  
+
+    <ul class="clearfix">
+    	<li *ngFor="let item of tickTockList; let i=index;">
+    	 <button class="square" type="" id="button{{i}}" #btn (click)="handleSquareClick(btn)"> {{item}}</button>	
+    	</li>
+    </ul>
+  	
+  	<button [hidden]="gameStarted" (click)="refreshTheGame()">Refresh the Game</button>
+ 
+
+</div>
+	
+</div>

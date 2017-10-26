@@ -1,0 +1,136 @@
+<div  [hidden]="submitted" class="contact-form">
+	  <div class="form">
+	    <p>Please send us below Information or Contact via Mail/Phone</p>
+	    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" >
+	     
+				<div class="form-group">
+				  <label for="firstName">FirstName</label>
+				  <input id="firstName" formControlName="firstName" name="firstName" class="form-control">
+
+	           </div>
+	   
+	            <div class="form-group">
+				  <label for="lastName">LastName</label>
+				  <input type="text" id="lastName" formControlName="lastName" name="lastName"  class="form-control" >
+				</div>
+
+				<div formArrayName="addresses" class="address-cont">
+
+					  <div class="address" *ngFor="let address of addresses.controls; let i = index"  [formGroupName]="i">
+					  	
+					  	      <p>Address {{i+1}}</p>
+							   <div class="form-group">
+									  <label for="street">St. Name</label>
+									  <input type="text" id="street" formControlName="street" name="street"
+									    class="form-control" >
+								</div>
+
+
+							 <div class="form-group">
+								  <label for="city">City</label>
+								  <input type="text" id="city" formControlName="city" name="city"  class="form-control" >
+							</div>
+		                
+		                    <div class="form-group">
+								  <label for="power">States</label>
+								  <select class="form-control"  id="state"
+								         name="state" formControlName="state">
+								    <option *ngFor="let state of states" [value]="state">{{state}}</option>
+								  </select>
+							   </div>
+
+
+
+							 <div class="form-group">
+								  <label for="pinCode">Pin Code</label>
+								  <input type="text" id="pinCode" formControlName="pinCode" name="pinCode" 
+								   class="form-control" >
+							</div>
+
+					
+
+					  </div>
+                        <button type="button"  (click)="addAddress()"> Add Address</button>
+						
+				</div>
+
+				     <div class="form-group">
+						  <label for="email">Email :</label>
+						  <input type="text" id="email" formControlName="email" name="email" 
+						   class="form-control" >
+					</div>
+
+
+
+					<div formArrayName="hobbies"  class="hobbies" >
+				      	<label> Hobbies </label>
+					  <div *ngFor="let hobby of hobbies.controls; let i = index;" [formGroupName]="i">
+					  	
+					    	
+
+					    	 <input type="text" name="hobby" id="hobby" formControlName="hobby">
+					  	    
+					  </div> 
+
+					   <button type="button" (click)="addHobbies()"> Add Hobby</button>
+						
+					</div>
+
+	      <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success" >Submit</button>
+	 
+	    </form>
+	</div>
+</div>
+
+ 
+
+
+
+
+<div [hidden]="!submitted">
+
+    <p>FirstName : {{contactForm.get('firstName').value}}</p>
+     <p>LastName : {{contactForm.get('lastName').value}}</p>
+
+
+     <div class="address-display-cont">
+     	
+     	   <div  class="address-display" *ngFor=" let item of contactForm.get('addresses').controls">
+
+       
+			      <p>Street : {{ item.get('street').value}} </p>
+
+			      <p>City : {{ item.get('city').value}} </p>
+
+			      <p>Pin Code : {{ item.get('state').pinCode}} </p>
+	     	
+        </div>
+
+
+     </div>
+
+    
+  <p>Email : {{contactForm.get('email').value}}</p>
+
+  <div class="hobbies-display-cont">
+  	 <div  class="hobbies-display" *ngFor=" let item of contactForm.get('hobbies').controls">
+	      <p>Street : {{ item.get('hobby').value}} </p>
+     </div>
+  </div>
+
+   
+	
+	 <button type="button" class="edit" (click)="onEdit()">  Edit</button>
+</div>
+
+<div class="contact-us-info">
+	<p>E mail : nsbpubliceducation@gmail.com Ph. +91 9235659835</p>
+</div>
+
+<router-outlet> </router-outlet>
+
+
+
+<app-rating-component></app-rating-component>
+
+

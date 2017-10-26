@@ -1,0 +1,28 @@
+p{
+	color: red;
+	font-family: FontAwesome;
+}
+.rating-cont{
+
+	direction: rtl;
+	text-align: center;
+}
+input{
+	display: none;
+}
+label:before{
+font-family: FontAwesome;
+ content: "\f006";
+ font-size: 25px;
+}
+
+input:hover ~label:before{
+content: "\f005";
+	color: yellow;
+}
+
+
+input:checked ~label:before{
+content: "\f005";
+	color: green;
+}

@@ -1,0 +1,19 @@
+<div class="add-student-cont" >
+
+ <div class="example-wrapper">
+           <kendo-dialog title="Please confirm" *ngIf="opened" (close)="close('cancel')">
+            <p style="margin: 30px; text-align: center;">Are you sure you want to continue?</p>
+             <label> Name</label> <input type="text/submit/hidden/button/etc" name="" value="" #studentName> <br>
+             <label>Rating</label> <input type="text/submit/hidden/button/etc" name="" value="" #studentRating><br>
+             <label>Standard</label> <input type="text/submit/hidden/button/etc" name="" value="" #studentStandard> <br>
+            
+            <kendo-dialog-actions>
+                <button kendoButton (click)="close('no')">No</button>
+                  <button kendoButton type="button" [primary]="true" (click)="addStudent(studentName,studentRating,studentStandard)"> add </button>
+            </kendo-dialog-actions>
+        </kendo-dialog>
+      </div>
+   
+  
+	
+</div>

@@ -1,0 +1,25 @@
+<div>
+	Teacher List
+
+	<div>
+	  <table>
+	  	
+	  	<thead>
+	  		<tr>
+	  			<th>Name</th>
+	  			
+	  			<th>Rating</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<tr *ngFor="let teacher of (teachersInfo |async).teacherList">
+	  			<td>{{teacher.name}}</td>
+	  			
+	  			<td>{{teacher.rating}}</td>
+
+	  		</tr>
+	  	</tbody>
+	  </table>
+		
+	</div>
+</div>
