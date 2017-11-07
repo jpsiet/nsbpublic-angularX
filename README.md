@@ -2,5 +2,5 @@
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.  DEMO
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.  Live running application here 
 http://nsbpubliceducation-ag.s3-website.us-east-2.amazonaws.com/about

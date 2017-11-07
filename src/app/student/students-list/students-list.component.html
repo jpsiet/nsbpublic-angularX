@@ -1,25 +1,29 @@
 <div>
+   <student-details [studentDetails]="studentDetail" [currentStudentViewIndex]="currentSelectedIndex"> </student-details>
 	Student  List 
-	 <button kendoButton type="button" [primary]="true"> add </button>
+	  <div>
+      <div class="progress-cont"  *ngIf="isDataLoading">  <fa name="cog" animation="spin"  size="2x"></fa> </div>
+		  <kendo-grid  *ngIf="!isDataLoading" [data]="studentList" [height]="410"  
 
-	<a [routerLink]="['/addStudent']"> Add Student</a>
-    <a [routerLink]="['/editStudent']"> Edit Student</a>
-	
-
-	<div>
-
-		 <kendo-grid [data]="(studentInfoData|async).studentList" [height]="410">
+       [selectable]="true" (selectionChange)="selectionChange($event)"
+       [kendoGridSelectBy]="mySelectionKey">
 		 	 <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    <input type="checkbox" (click)="handleDetails()" />
+                    <input type="checkbox" (click)="handleDetails($event)" />
                 </ng-template>
             </kendo-grid-column>
-            
-            <kendo-grid-column field="name" title="ID" width="100">
+             <kendo-grid-column field="firstName" title="First Name"  >
             </kendo-grid-column>
-            <kendo-grid-column field="standard" title="Name" width="75">
+            <kendo-grid-column field="standard" title="Standard" >
             </kendo-grid-column>
-            <kendo-grid-column field="rating" title="Category">
+
+             <kendo-grid-column field="subject" title="Subject" >
+            </kendo-grid-column>
+
+             <kendo-grid-column field="rollNumber" title="Roll Number">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="rating" title="Rating">
             </kendo-grid-column>
          
            

@@ -1,0 +1,72 @@
+  
+  <kendo-dialog title="View/Edit Students Record" *ngIf="show" (close)="close('cancel')">
+   <div class="sutdent-details-cont">
+     <div [hidden]="submitted">
+   
+		    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+		      <div class="form-group">
+		        <label for="name">First Name</label>
+		        <input type="text" class="form-control" id="firstName"
+		               required
+		               [(ngModel)]="studentDetails.firstName" name="firstName"
+		               #name="ngModel">
+		       
+		      </div>
+
+
+		       <div class="form-group">
+		        <label for="name">Roll Number</label>
+		        <input type="text" class="form-control" id="rollNumber"
+		               required
+		               [(ngModel)]="studentDetails.rollNumber" name="rollNumber"
+		               #name="ngModel">
+		      
+		      </div>
+
+
+
+		       <div class="form-group">
+		        <label for="name">Rating</label>
+		        <input type="text" class="form-control" id="rating"
+		               required
+		               [(ngModel)]="studentDetails.rating" name="rating"
+		               #rating="ngModel">
+		       
+		      </div>
+
+
+		       <div class="form-group">
+		        <label for="name">Standard</label>
+		        <input type="text" class="form-control" id="standard"
+		               required
+		               [(ngModel)]="studentDetails.standard" name="standard"
+		               #standard="ngModel">
+		       
+		      </div>
+
+             
+              <div class="form-group">
+		        <label for="name">Subject</label>
+		        <input type="text" class="form-control" id="subject"
+		               required
+		               [(ngModel)]="studentDetails.subject" name="subject"
+		               #subject="ngModel">
+		       
+		      </div>
+
+              <button type="button" class="btn btn-success" (click)="updateStudentRecord()">Update</button>
+		      <button type="button" class="btn btn-default" (click)="close('yes')">Cancel </button>
+		      <button type="button" class="btn btn-default" (click)="deleteHero()">Delete</button>
+		     
+		     </form>
+
+
+           </div>
+           	
+           </div>
+
+           <!--  <kendo-dialog-actions>
+                <button kendoButton (click)="close('no')">No</button>
+                <button kendoButton (click)="close('yes')" primary="true">Yes</button>
+            </kendo-dialog-actions> -->
+  </kendo-dialog>

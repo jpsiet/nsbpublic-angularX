@@ -16,9 +16,7 @@ export class AppComponent  implements OnInit{
   title = 'app';
 
   ngOnInit(){
-  	debugger;
-     console.log(location);
-     if(location.host === 'localhost:4200'){
+  	 if(location.host === 'localhost:4200'){
       this.appService.setEnvoirment('http://localhost:3000')
      }else{
      	 this.appService.setEnvoirment('http://ec2-18-221-43-252.us-east-2.compute.amazonaws.com:9000')

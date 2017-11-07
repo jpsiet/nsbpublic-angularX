@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import { PopupModule } from '@progress/kendo-angular-popup';
 import { HttpModule }    from '@angular/http';
-
+import { FormsModule }   from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import { GridModule } from '@progress/kendo-angular-grid';
-
 import { EffectsModule } from '@ngrx/effects';
 
+import {environment} from './../environments/environment'
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,18 +21,16 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import {AddStudent} from './student/add-student/add-student.component';
 import {EditStudentComponent} from './student/edit-student/edit-student.component';
-import {StudentDetailsComponent} from './student/student-details/student-details.component';
 
-import {TeacherListComponent} from './teacher/teacher-list.component';
 import { StudentsListComponent } from './student/students-list/students-list.component';
+import{StudentDetailComponent} from './student/student-detail/student-detail.component';
 
 import {AppRoutingModule} from './app-routing.module';
 import { AdmissionComponent } from './admission/admission.component';
 import {HighlightDirective} from './directive/highlight.directive';
 import {UnlessStrDirective} from './strcutre-directive/unless-str.directive';
 import {DropdownDirective} from './directive/dropdown.directive';
-
-import { AuthEffects } from './student/store/effects/AuthEffects';
+import { AuthEffects } from './student/store/effects/trade_data_effect';
 
 
 
@@ -42,7 +44,7 @@ import {AuthGuardService} from './auth-guard.service';
 import {CanDeactivateGuard} from './can-deactivate-guard.service';
 import {AppService} from './app.service';
 import {AuthService} from './auth.service';
-import { TickTockGameComponent } from './game/tick-tock-game/tick-tock-game.component';
+import { FunComponent } from './fun/fun.component';
 import {reducers} from './store/app.reducers';
 // Import the Animations module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -70,24 +72,27 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
     CareerComponent,
     LoginComponent,
     AddStudent,
-    StudentDetailsComponent,
-    TeacherListComponent,
+    StudentDetailComponent,
     StudentsListComponent,
     EditStudentComponent,
-    TickTockGameComponent
+    FunComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
         HttpModule,
-        // Register the modules
+        AngularFontAwesomeModule,
         BrowserAnimationsModule,
+        PopupModule,
+        FormsModule,
         GridModule,
         ButtonsModule,
         DialogModule,
         EffectsModule.forRoot([AuthEffects]),
-        StoreModule.forRoot(reducers)
+        StoreModule.forRoot(reducers),
+        StoreRouterConnectingModule,
+        !environment.production?StoreDevtoolsModule.instrument():[]
   ],
   providers: [AppService,LoggingService,EventService,AuthGuardService,CanDeactivateGuard,AuthService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from './../auth.service';
+
 
 
 @Component({
@@ -9,7 +9,7 @@ import {AuthService} from './../auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-	constructor(private  authService :AuthService){
+	constructor(){
 
 	}
 
@@ -18,8 +18,5 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  handleLogOut(){
-  	this.authService.currentRole = '';
-  }
 
 }

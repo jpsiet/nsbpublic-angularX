@@ -19,15 +19,14 @@ export class AddStudent implements OnInit{
 	}
 	addStudent(name:any,rating:any,standard:any){
 	
-		this.student = new StudentModel(name.value,rating.value,standard.value);
-		this.store.dispatch( new StudentListActions.AddStudent(this.student));
+		//this.student = new StudentModel(name.value,rating.value,standard.value);
+	//	this.store.dispatch( new StudentListActions.AddStudent(this.student));
 		
 	}
-
-	  public opened: boolean = true;
+	
+	public opened: boolean = true;
 
     public close(status) {
-      console.log(`Dialog result: ${status}`);
       this.opened = false;
     }
 

@@ -1,0 +1,16 @@
+.student-details-cont{
+
+	border: 1px solid blue;
+
+	text-align: center;
+}
+
+.sutdent-details-cont label{
+
+	margin: 10px 20px;
+}
+
+.sutdent-details-cont input{
+
+	marginleft: 300px;
+}

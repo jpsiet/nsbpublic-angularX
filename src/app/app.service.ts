@@ -3,48 +3,30 @@ import {Injectable} from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
 
+  import { environment } from '../environments/environment';
+
 @Injectable()
 export class AppService{
 
 	private headers = new Headers({'Content-Type':'application/json'});
-	private  path = "";
 
+	private  path = "";
+    // Node JS Version
+    
+     //  Spring Version
+     // baseUrl = "http://localhost:8080/nsbpublic/"; 
 
 	constructor(private http:Http){};
   
    setEnvoirment(name){
    	this.path=name;
    }
-	getName(): Promise<any>{
-		return this.http.get(this.path)
-		       .toPromise()
-		       .then(this.extractData)
-	}
-
-	private extractData(res:Response |any){
-
-		let body = JSON.parse(res._body);
-		return body || {}
-	}
-    getTeacherList():Promise<any>{
-    	return this.http.get(this.path+'/api/teachers').toPromise()
-    	.then( (res:Response |any) => {
-
-    		let body = JSON.parse(res._body);
-		    return body || {}
-
-    	})
-    }
-
-
-     getStudentList():Promise<any>{
-    	return this.http.get('http://localhost:8080/nsbpublic/api/student/').toPromise()
-    	.then( (res:Response |any) => {
-
-    		let body = JSON.parse(res._body);
-		    return body || {}
-
-    	})
+	
+  
+   // java version http://localhost:8080/nsbpublic/api/student/
+     getStudentList(){
+       debugger;
+    	return this.http.get(environment.apiUrl+ 'api/students');
     }
 
 }
